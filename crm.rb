@@ -4,6 +4,8 @@ require 'sinatra'
 
 $rolodex = Rolodex.new
 
+$rolodex.add_contact(Contact.new("Johnny", "Bravo", "johnny@bitmakerlabs.com", "Rockstar"))
+
 get '/' do  #route
 	@crm_app_name = "My CRM"
 	erb :index
@@ -18,8 +20,8 @@ get '/square/:number' do
 end
 
 get "/contacts" do 
-	# @contacts = []
-	# @contacts << Contact.new("Nathan", "Ho", "nathan.ho28@gmail.com", "Instructor")
+	@contacts = []
+	@contacts << Contact.new("Nathan", "Ho", "nathan.ho28@gmail.com", "Student")
 	# @contacts << Contact.new("Will", "Richman", "will@bitmakerlabs.com", "Co-Founder")
 	# @contacts << Contact.new("Chris", "Johnston", "chris@bitmakerlabs.com", "Instructor")
 	erb :contacts
@@ -35,6 +37,15 @@ end
 
 get '/contacts/search' do
 	erb :search_contact
+end
+
+get 'contacts/delete' do
+	erb :delete_contact
+end
+
+get "/contacts/1000" do
+  @contact = $rolodex.find(1000)
+  erb :show_contact
 end
 
 get '/help' do
