@@ -31,8 +31,12 @@ get '/contacts/new' do
 	erb :new_contact
 end
 
-get '/contacts/modify' do
-	erb :modify_contact
+get '/contacts/:id/modify' do
+	@contact = $rolodex.find(params[:id].to_i)
+	if @contact
+		erb :modify_contact
+	else
+		raise Sinatra::NotFound
 end
 
 get '/contacts/search' do
