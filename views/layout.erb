@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<link type="text/css" rel="stylesheet" href="/stylesheet.css" />
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="/">HOME</a></li>
+				<li>
+					<a href="/contacts">CONTACTS<span class="contacts"</span></a>
+					<div>
+						<ul>
+							<li><a href="/contacts/new">ADD CONTACT</a></li>
+							<li><a href="/contacts/modify">MODIFY CONTACT</a></li>
+							<li><a href="/contacts/search">FIND CONTACT</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="/help">HELP</a></li>
+			</ul>
+		</nav>
+		<header>CUSTOMER RELATIONSHIP APPLICATION</header>
+
+		<%= yield %>
+
+		<footer>&copy;Nathan Ho <%= Time.now %></footer>
+	</body>
+</html>

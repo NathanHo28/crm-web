@@ -1,0 +1,141 @@
+header {
+	display: block;
+	font-family: Verdana;
+	color: #363670;
+	margin: 30px 15px;
+}
+
+body {
+	background-color: #8C8C9A;
+}
+
+.123 {
+	color: blue;
+}
+
+nav {
+	display: block;
+	background-color: #fff;
+	border: 1px solid #dedede;
+	border-radius: 4px;
+	box-shadow: 0px 2px 2px -1px; /* Add a nice shadow around our element. Syntax - box-shadow: h-shadow v-shadow blur spread color inset */
+	color: #888;
+	margin: 8px 22px 8px 22px;
+	overflow: hidden; /* This will stop any items breaking out of our element - used to fix a hover state on the list items */
+	width: 95%;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+nav ul li {
+	display: inline-block; /* arrange in horizontal line w/out using float */
+	list-style-type: none;
+
+	/*"all" means all CSS attributes and "0.2s" refers to the amount of time they'll take to transition*/
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+nav > ul > li > a { /* > refers to direct children of the previous selector. */
+	color: #3F3F43;
+	display: block;
+	line-height: 56px;
+	padding: 0 24px;
+	text-decoration: none;
+}
+
+nav > ul > li > a > .contacts {
+border-top: 4px solid #aaa;
+border-right: 4px solid transparent;
+border-left: 4px solid transparent;
+content: "";
+display: inline-block;
+height: 0;
+width: 0;
+vertical-align: middle;
+
+-webkit-transition: color 0.1s linear; /* transition allows for element to gradually change from one style to the other. */
+-moz-transition: color 0.1s linear; /* please refer to http://www.w3schools.com/css/css3_transitions.asp */
+-o-transition: color 0.1s linear;
+	transition: color 0.1s linear;
+
+Up Arrow: Border-bottom: 5px solid, border-left: 5px transparent, border-right: 5px transparent
+Down Arrow: Border-top: 5px solid, border-left: 5px transparent, border-right: 5px transparent
+Left Arrow: Border-left: 5px solid, border-top: 5px transparent, border-bottom: 5px transparent
+Right Arrow: Border-right: 5px solid, border-top: 5px transparent, border-bottom: 5px transparent
+}
+
+nav > ul > li:hover { /* basic hover states for the list items in our 1st tier navigation. */
+	background-color: rgb(40, 44, 47);
+}
+
+nav > ul > li:hover > a {
+	color: rgb(255, 255, 255);
+}
+
+nav > ul > li:hover > a > .contacts {
+	border-top-color: rgb(255, 255, 255);
+}
+
+nav > ul > li > div {
+	background-color: rgb(40, 44, 47);
+	border-top: 0;
+	border-radius: 0 0 4px 4px;
+	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+	display: none;
+	margin: 0;
+	opacity: 0;
+	position: absolute;
+	width: 165px;
+	visibility: hidden;
+	z-index: 100;
+
+	-webkit-transition: opacity 0.2s; /* transition allows for element to gradually change from one style to the other. */
+	-moz-transition: opacity 0.2s; /* please refer to http://www.w3schools.com/css/css3_transitions.asp */
+	-ms-transition: opacity 0.2s;
+	-o-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+	nav > ul > li > div ul > li {
+		display: block;
+	}
+
+	nav > ul > li > div ul > li:hover > a {
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+
+nav > ul > li:hover > div { /* allows dropdown menu to appear. when user hovers over the parent list item then give div inside the following style */
+	display: block;
+	opacity: 1;
+	visibility: visible;
+}
+
+a {
+	text-decoration: none;
+}
+
+nav > ul > li > div > ul > li > a:link {
+	color: black;
+}
+nav > ul > li > div > ul > li > a:hover {
+	color: white;
+}
+
+nav > ul > li > div > ul > li > a:active {
+	color: #218221;
+}
+
+nav > ul > li > div > ul > li > a:visited {
+	color: #218221;
+}
+
+table {
+	float: center;
+}
