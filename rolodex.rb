@@ -1,15 +1,19 @@
 class Rolodex
   attr_reader :contacts
-  @@index = 1000
+  @@id = 1000
 
   def initialize
     @contacts = []
   end
 
   def add_contact(contact)
-    contact.id = @@index
+    contact.id = @@id
     @contacts << contact
-    @@index += 1
+    @@id += 1
+  end
+
+  def delete_contact(contact)
+    @contacts.delete(contact)
   end
 
   def find(id) #search method to be reused in several other methods.
