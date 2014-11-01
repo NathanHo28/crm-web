@@ -28,7 +28,7 @@ get '/contacts/new' do
 end
 
 get "/contacts/:id" do
-  @contact = $rolodex.find(params[:id].to_i)
+  @contact = Contact.get(params[:id].to_i)
   if @contact 
    	erb :show_contact
   	# @contact.first_name = params[:first_name]
@@ -42,7 +42,7 @@ get "/contacts/:id" do
 end
 
 put '/contacts/:id' do
-	@contact = $rolodex.find(params[:id].to_i)
+	@contact = Contact.get(params[:id].to_i)
 	if @contact
 		@contact.first_name = params[:first_name]
 		@contact.last_name = params[:last_name]
@@ -56,9 +56,9 @@ put '/contacts/:id' do
 end
 
 delete "/contacts/:id" do
-  @contact = $rolodex.find(params[:id].to_i)
+  @contact = Contact.get(params[:id].to_i)
   if @contact
-    $rolodex.delete_contact(@contact)
+    @contact.destroy
     redirect to("/contacts")
   else
     raise Sinatra::NotFound
@@ -66,7 +66,7 @@ delete "/contacts/:id" do
 end
 
 get '/contacts/:id/modify' do
-	@contact = $rolodex.find(params[:id].to_i)
+	@contact = Contact.get(params[:id].to_i)
 	if @contact
 		erb :modify_contact
 	else
@@ -74,19 +74,19 @@ get '/contacts/:id/modify' do
 	end
 end
 
-get "/contacts" do 
-	# @contacts = []
-	# @contacts << Contact.new("Nathan", "Ho", "nathan.ho28@gmail.com", "Student")
-	# @contacts << Contact.new("Will", "Richman", "will@bitmakerlabs.com", "Co-Founder")
-	# @contacts << Contact.new("Chris", "Johnston", "chris@bitmakerlabs.com", "Instructor")
-	erb :contacts
+get "/contacts" do
+  @contacts = Contact.all
+  erb :contacts
 end
 
-post '/contacts' do
-  # puts params
-  new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
-  $rolodex.add_contact(new_contact)
-  redirect to ('/contacts')
+post "/contacts" do
+  contact = Contact.create(
+    :first_name => params[:first_name],
+    :last_name => params[:last_name],
+    :email => params[:email],
+    :note => params[:note]
+  )
+  redirect to('/contacts')
 end
 
 # get '/layout' do 

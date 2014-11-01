@@ -1,16 +1,18 @@
 header {
 	display: block;
-	font-family: Verdana;
-	color: #363670;
+	font-family: Lucida Sans Unicode;
+	color: white;
 	margin: 30px 15px;
 }
 
 body {
-	background-color: #8C8C9A;
+	background-color: #191E22;
+	color: white;
 }
 
-.123 {
-	color: blue;
+fieldset {
+	margin: auto;
+	width: 75%;
 }
 
 nav {
